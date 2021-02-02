@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: xero
+    schema: "{{ var('xero_schema', 'xero') }}"
+    database: "{{ var('hubspot_database', target.database) }}"
+    loader: Fivetran
+    loaded_at_field: _fivetran_synced
+    tables:
+      - name: account
+      - name: bank_account
+      - name: bank_transaction
+      - name: contact
+      - name: invoice_line_item
+      - name: invoice
+      - name: journal_line
+      - name: journal
+      - name: manual_journal_line
+      - name: manual_journal
+      - name: payment
+      

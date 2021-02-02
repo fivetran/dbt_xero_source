@@ -2,3 +2,17 @@ name: 'xero_source'
 version: '0.2.0'
 config-version: 2
 require-dbt-version: [">=0.18.0", "<0.19.0"]
+
+vars: 
+  xero_source:
+    account: "{{ source('xero','account') }}"
+    bank_account: "{{ source('xero','bank_account') }}"
+    bank_transaction: "{{ source('xero','bank_transaction') }}"
+    contact: "{{ source('xero','contact') }}"
+    invoice_line_item: "{{ source('xero','invoice_line_item') }}"
+    invoice: "{{ source('xero','invoice') }}"
+    journal_line: "{{ source('xero','journal_line') }}"
+    journal: "{{ source('xero','journal') }}"
+    manual_journal_line: "{{ source('xero','manual_journal_line') }}"
+    manual_journal: "{{ source('xero','manual_journal') }}"
+    payment: "{{ source('xero','payment') }}"
