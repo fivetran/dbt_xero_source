@@ -25,6 +25,7 @@ final as (
         account_id,
         name as account_name,
         code as account_code,
+        type as account_type,
         _fivetran_synced
     from fields
 )
