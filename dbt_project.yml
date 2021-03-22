@@ -8,3 +8,6 @@ vars:
     account: "{{ source('xero','account') }}"
     journal_line: "{{ source('xero','journal_line') }}"
     journal: "{{ source('xero','journal') }}"
+    invoice: "{{ source('xero','invoice') }}"
+    invoice_line_item: "{{ source('xero','invoice_line_item') }}"
+    contact: "{{ source('xero','contact') }}"
