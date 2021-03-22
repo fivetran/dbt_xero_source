@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_xero__account
+    columns:
+      - name: account_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_xero__contact
+    columns:
+      - name: contact_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_xero__invoice_line_item
+    columns:
+      - name: line_item_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_xero__invoice
+    columns:
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_xero__journal_line
+    columns:
+      - name: journal_line_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_xero__journal
+    columns:
+      - name: journal_id
+        tests:
+          - unique
+          - not_null
