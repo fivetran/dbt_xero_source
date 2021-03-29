@@ -1,4 +1,4 @@
-# Xero (Source)
+# Xero Source
 
 This package models Xero data from [Fivetran's connector](https://fivetran.com/docs/applications/xero). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1eJ5eLTWyG2ozdZYLf4oy887anCvLtoE8RhJ1VLmFrbI/edit?usp=sharing).
 
@@ -6,8 +6,8 @@ This package models Xero data from [Fivetran's connector](https://fivetran.com/d
 
 This package contains staging models, designed to work simultaneously with our [Xero modeling package](https://github.com/fivetran/xero). The staging models name columns consistently across all packages:
 
- * Boolean fields are prefixed with `is_` or `has_`
- * ID primary keys are prefixed with the name of the table. For example, the campaign table's ID column is renamed `campaign_id`.
+ - Boolean fields are prefixed with `is_` or `has_`.
+ - ID primary keys are prefixed with the name of the table. For example, the campaign table's ID column is renamed `campaign_id`.
 
 ## Installation Instructions
 
