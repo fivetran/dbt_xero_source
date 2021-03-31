@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: xero
     schema: "{{ var('xero_schema', 'xero') }}"
-    database: "{{ var('hubspot_database', target.database) }}"
+    database: "{{ var('xero_database', target.database) }}"
     loader: Fivetran
     loaded_at_field: _fivetran_synced
     tables:
