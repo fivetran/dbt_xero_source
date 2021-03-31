@@ -34,8 +34,7 @@ final as (
         quantity,
         tax_amount,
         tax_type,
-        unit_amount,
-        validation_errors
+        unit_amount
     from fields
 )
 

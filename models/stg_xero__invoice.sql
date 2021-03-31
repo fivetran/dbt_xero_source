@@ -35,21 +35,9 @@ final as (
         fully_paid_on_date,
         _fivetran_synced,
 
-        -- amounts
-        amount_credited,
-        amount_due,
-        amount_paid,
-        sub_total,
-        total,
-        total_tax,
-
         currency_code,
         currency_rate,
-        has_attachments,
-        has_errors,
         invoice_number,
-        is_discounted,
-        line_amount_types,
         reference,
         sent_to_contact as is_sent_to_contact,
         status as invoice_status,
