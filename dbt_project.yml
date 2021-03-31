@@ -11,3 +11,4 @@ vars:
     invoice: "{{ source('xero','invoice') }}"
     invoice_line_item: "{{ source('xero','invoice_line_item') }}"
     contact: "{{ source('xero','contact') }}"
+    organization: "{{ source('xero','organization') }}"
