@@ -4,7 +4,7 @@ This package models Xero data from [Fivetran's connector](https://fivetran.com/d
 
 ## Models
 
-This package contains staging models, designed to work simultaneously with our [Xero modeling package](https://github.com/fivetran/xero). The staging models name columns consistently across all packages:
+This package contains staging models, designed to work simultaneously with our [Xero modeling package](https://github.com/fivetran/dbt_xero). The staging models name columns consistently across all packages:
 
  - Boolean fields are prefixed with `is_` or `has_`.
  - ID primary keys are prefixed with the name of the table. For example, the campaign table's ID column is renamed `campaign_id`.
