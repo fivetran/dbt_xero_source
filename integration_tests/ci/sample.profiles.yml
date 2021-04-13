@@ -24,6 +24,15 @@ integration_tests:
       project: 'dbt-package-testing'
       schema: xero_source_integration_tests
       threads: 8
+    postgres:
+      type: postgres
+      host: "{{ env_var('CI_POSTGRES_DBT_HOST') }}"
+      user: "{{ env_var('CI_POSTGRES_DBT_USER') }}"
+      pass: "{{ env_var('CI_POSTGRES_DBT_PASS') }}"
+      dbname: "{{ env_var('CI_POSTGRES_DBT_DBNAME') }}"
+      port: 5432
+      schema: xero_source_integration_tests
+      threads: 8
     snowflake:
       type: snowflake
       account: "{{ env_var('CI_SNOWFLAKE_DBT_ACCOUNT') }}"
