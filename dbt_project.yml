@@ -12,3 +12,10 @@ vars:
     invoice_line_item: "{{ source('xero','invoice_line_item') }}"
     contact: "{{ source('xero','contact') }}"
     organization: "{{ source('xero','organization') }}"
+
+models: 
+  xero_source:
+    +materialized: table
+    +schema: stg_xero
+    tmp:
+      +materialized: view
