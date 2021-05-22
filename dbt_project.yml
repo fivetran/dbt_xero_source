@@ -13,7 +13,6 @@ vars:
     contact: "{{ source('xero','contact') }}"
     organization: "{{ source('xero','organization') }}"
     bank_transaction: "{{ source('xero','bank_transaction') }}" 
-    bank_transfer: "{{ source('xero','bank_transfer') }}" 
     credit_note: "{{ source('xero','credit_note') }}" 
 
 models: 
