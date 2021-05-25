@@ -12,6 +12,8 @@ vars:
     invoice_line_item: "{{ source('xero','invoice_line_item') }}"
     contact: "{{ source('xero','contact') }}"
     organization: "{{ source('xero','organization') }}"
+    bank_transaction: "{{ source('xero','bank_transaction') }}" 
+    credit_note: "{{ source('xero','credit_note') }}" 
 
 models: 
   xero_source:

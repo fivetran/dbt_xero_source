@@ -155,5 +155,20 @@ sources:
           - name: financial_year_end_day
             description: Calendar day e.g. 0-31
 
+      - name: bank_transaction
+        description: Each record represents a bank transaction in Xero.
+        columns:
+          - name: bank_transaction_id
+            description: Xero identifier for the bank transaction.
+          - name: contact_id
+            description: The ID of the associated contact in Xero
+            
+      - name: credit_note
+        description: Each record represents a credit note in Xero.
+        columns:
+          - name: credit_note_id
+            description: Xero identifier for the credit note.
+          - name: contact_id
+            description: The ID of the associated contact in Xero
 
       
