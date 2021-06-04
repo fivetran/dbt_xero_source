@@ -26,31 +26,37 @@ jobs:
           command: |
             . venv/bin/activate
             echo `pwd`
+            export DBT_PACKAGE_TEST=redshift
             cd integration_tests
             dbt deps
-            dbt seed --target redshift --full-refresh
-            dbt run --target redshift --full-refresh
-            dbt test --target redshift
+            dbt seed --full-refresh
+            dbt run --full-refresh
+            dbt test
+            sqlfluff lint models --dialect postgres
       - run:
           name: "Run Tests - Postgres"
           command: |
             . venv/bin/activate
             echo `pwd`
+            export DBT_PACKAGE_TEST=postgres
             cd integration_tests
             dbt deps
-            dbt seed --target postgres --full-refresh
-            dbt run --target postgres --full-refresh
-            dbt test --target postgres
+            dbt seed --full-refresh
+            dbt run --full-refresh
+            dbt test
+            sqlfluff lint models --dialect postgres
       - run:
           name: "Run Tests - Snowflake"
           command: |
             . venv/bin/activate
             echo `pwd`
+            export DBT_PACKAGE_TEST=snowflake
             cd integration_tests
             dbt deps
-            dbt seed --target snowflake --full-refresh
-            dbt run --target snowflake --full-refresh
-            dbt test --target snowflake
+            dbt seed --full-refresh
+            dbt run --full-refresh
+            dbt test
+            sqlfluff lint models --dialect snowflake
       - run:
           name: "Run Tests - BigQuery"
           environment:
@@ -59,8 +65,10 @@ jobs:
           command: |
             . venv/bin/activate
             echo `pwd`
+            export DBT_PACKAGE_TEST=bigquery
             cd integration_tests
             dbt deps
-            dbt seed --target bigquery --full-refresh
-            dbt run --target bigquery --full-refresh
-            dbt test --target bigquery
+            dbt seed --full-refresh
+            dbt run --full-refresh
+            dbt test
+            sqlfluff lint models --dialect bigquery

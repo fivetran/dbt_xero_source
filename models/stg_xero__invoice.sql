@@ -1,7 +1,6 @@
-
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_xero__invoice_tmp') }}
 
 ),
@@ -9,19 +8,19 @@ with base as (
 fields as (
 
     select
-        {{
+{{
             fivetran_utils.fill_staging_columns(
                 source_columns=adapter.get_columns_in_relation(ref('stg_xero__invoice_tmp')),
                 staging_columns=get_invoice_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
         -- IDs
         invoice_id,
         contact_id,

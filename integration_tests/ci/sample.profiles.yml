@@ -6,7 +6,7 @@ config:
     use_colors: True
 
 integration_tests:
-  target: snowflake
+  target: "{{ env_var('DBT_PACKAGE_TARGET') }}"
   outputs:
     redshift:
       type: redshift
