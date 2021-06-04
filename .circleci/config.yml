@@ -26,7 +26,7 @@ jobs:
           command: |
             . venv/bin/activate
             echo `pwd`
-            export DBT_PACKAGE_TEST=redshift
+            export DBT_PACKAGE_TARGET=redshift
             cd integration_tests
             dbt deps
             dbt seed --full-refresh
@@ -38,7 +38,7 @@ jobs:
           command: |
             . venv/bin/activate
             echo `pwd`
-            export DBT_PACKAGE_TEST=postgres
+            export DBT_PACKAGE_TARGET=postgres
             cd integration_tests
             dbt deps
             dbt seed --full-refresh
@@ -50,7 +50,7 @@ jobs:
           command: |
             . venv/bin/activate
             echo `pwd`
-            export DBT_PACKAGE_TEST=snowflake
+            export DBT_PACKAGE_TARGET=snowflake
             cd integration_tests
             dbt deps
             dbt seed --full-refresh
@@ -65,7 +65,7 @@ jobs:
           command: |
             . venv/bin/activate
             echo `pwd`
-            export DBT_PACKAGE_TEST=bigquery
+            export DBT_PACKAGE_TARGET=bigquery
             cd integration_tests
             dbt deps
             dbt seed --full-refresh
