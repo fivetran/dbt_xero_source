@@ -3,7 +3,7 @@ version: '0.1.0'
 config-version: 2
 require-dbt-version: [">=0.19.0", "<0.20.0"]
 
-profile: 'fivetran_packages'
+profile: 'integration_tests'
 
 vars: 
   xero_source:
