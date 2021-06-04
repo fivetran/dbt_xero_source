@@ -1,7 +1,6 @@
-
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_xero__journal_line_tmp') }}
 
 ),
@@ -9,19 +8,19 @@ with base as (
 fields as (
 
     select
-        {{
+{{
             fivetran_utils.fill_staging_columns(
                 source_columns=adapter.get_columns_in_relation(ref('stg_xero__journal_line_tmp')),
                 staging_columns=get_journal_line_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
         journal_line_id,
         account_code,
         account_id,
