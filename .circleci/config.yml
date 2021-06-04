@@ -33,6 +33,7 @@ jobs:
             dbt run --full-refresh
             dbt test
             cd ..
+            dbt deps
             sqlfluff lint models --dialect postgres
       - run:
           name: "Run Tests - Postgres"
@@ -46,6 +47,7 @@ jobs:
             dbt run --full-refresh
             dbt test
             cd ..
+            dbt deps
             sqlfluff lint models --dialect postgres
       - run:
           name: "Run Tests - Snowflake"
@@ -59,6 +61,7 @@ jobs:
             dbt run --full-refresh
             dbt test
             cd ..
+            dbt deps
             sqlfluff lint models --dialect snowflake
       - run:
           name: "Run Tests - BigQuery"
@@ -75,4 +78,5 @@ jobs:
             dbt run --full-refresh
             dbt test
             cd ..
+            dbt deps
             sqlfluff lint models --dialect bigquery
