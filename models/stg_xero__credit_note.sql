@@ -1,3 +1,4 @@
+{{ config(enabled=var('xero__using_credit_note', True)) }}
 
 with base as (
 
