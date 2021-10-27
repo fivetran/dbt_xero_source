@@ -15,7 +15,8 @@ fields as (
                 staging_columns=get_invoice_line_item_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.add_dbt_source_relation() }}    
     from base
 ),
 
@@ -35,6 +36,9 @@ final as (
         tax_amount,
         tax_type,
         unit_amount
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 

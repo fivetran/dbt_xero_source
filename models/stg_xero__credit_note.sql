@@ -16,7 +16,8 @@ fields as (
                 staging_columns=get_credit_note_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.add_dbt_source_relation() }}    
     from base
 ),
 
@@ -25,6 +26,9 @@ final as (
     select 
         credit_note_id,
         contact_id
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 
