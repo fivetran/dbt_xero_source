@@ -11,6 +11,8 @@ models:
     columns:
       - name: account_id
         description: Xero identifier for the account.
+        tests:
+          - not_null
       - name: account_name
         description: The name of the account.
       - name: account_code
@@ -38,6 +40,8 @@ models:
     columns:
       - name: contact_id
         description: Xero identifier for the contact.
+        tests:
+          - not_null
       - name: contact_name
         description: The name of the contact.
       - name: source_relation
@@ -73,6 +77,8 @@ models:
         description: The line amount reflects the discounted price if a DiscountRate has been used.
       - name: line_item_id
         description: Xero identifier for the line item.
+        tests:
+          - not_null
       - name: quantity
         description: The quantity of the line item.
       - name: tax_amount
@@ -97,6 +103,8 @@ models:
     columns:
       - name: invoice_id
         description: Xero identifier for the invoice
+        tests:
+          - not_null
       - name: contact_id
         description: The Xero identifier for the associated contact.
       - name: invoice_date
@@ -145,6 +153,8 @@ models:
     columns:
       - name: journal_line_id
         description: Xero identifier for the journal line.
+        tests:
+          - not_null
       - name: account_code
         description: Customer defined alpha numeric account code e.g 200 or SALES
       - name: account_id
@@ -183,6 +193,8 @@ models:
     columns:
       - name: journal_id
         description: Xero identifier for the journal entry
+        tests:
+          - not_null
       - name: created_date_utc
         description: The created date of the journal entry
       - name: journal_date
@@ -212,6 +224,8 @@ models:
     columns:
       - name: organisation_id
         description: Xero identifier for the organisation.
+        tests:
+          - not_null
       - name: financial_year_end_month
         description: Calendar Month e.g. 1-12
       - name: financial_year_end_day
