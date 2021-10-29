@@ -1,6 +1,6 @@
 {{ config(enabled=var('xero__using_credit_note', True)) }}
 
-{{{{
+{{
     fivetran_utils.union_data(
         table_identifier='credit_note', 
         database_variable='xero_database', 
