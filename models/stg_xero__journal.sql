@@ -15,7 +15,8 @@ fields as (
                 staging_columns=get_journal_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
 
@@ -29,6 +30,9 @@ final as (
         reference,
         source_id,
         source_type
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 

@@ -15,7 +15,8 @@ fields as (
                 staging_columns=get_organization_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
 
@@ -25,6 +26,9 @@ final as (
         organisation_id,
         financial_year_end_month,
         financial_year_end_day
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 

@@ -1,1 +1,10 @@
-select * from {{ var('journal_line') }}
+{{
+    fivetran_utils.union_data(
+        table_identifier='journal_line', 
+        database_variable='xero_database', 
+        schema_variable='xero_schema', 
+        default_database=target.database,
+        default_schema='xero',
+        default_variable='journal_line'
+    )
+}} 

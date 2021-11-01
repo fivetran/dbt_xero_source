@@ -15,7 +15,8 @@ fields as (
                 staging_columns=get_journal_line_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
 
@@ -34,6 +35,9 @@ final as (
         tax_amount,
         tax_name,
         tax_type
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 
