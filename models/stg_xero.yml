@@ -235,3 +235,98 @@ models:
           The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
           If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
           sources, this will be an empty string.
+
+
+  - name: stg_xero__purchase_order_line_item
+    description: Each record in this table represents a purchase order line item in Xero.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - purchase_order_id
+            - line_item_id
+            - source_relation  
+    columns:
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+      - name: account_code
+        description: Customer defined alpha numeric account code e.g 200 or SALES
+      - name: description
+        description: The description of the line item
+      - name: discount_rate
+        description: Percentage discount being applied to a purchase order line item.
+      - name: purchase_order_id
+        description: The Xero identifier for the purchase order the line items belongs to.
+        tests:
+          - not_null
+      - name: item_code
+        description: User defined item code.
+      - name: line_amount
+        description: The line amount reflects the discounted price if a DiscountRate has been used.
+      - name: line_item_id
+        description: Xero identifier for the purchase order line item.
+        tests:
+          - not_null
+      - name: quantity
+        description: The quantity of the purchase order line item.
+      - name: tax_amount
+        description: The tax amount is auto calculated as a percentage of the line amount based on the tax rate.
+      - name: tax_type
+        description: Used as an override if the default Tax Code for the selected AccountCode is not correct.
+      - name: unit_amount
+        description: The unit amount of each purchase order line item.
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
+
+  - name: stg_xero__purchase_order
+    description: Each record in this table represents a purchase order in Xero.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - purchase_order_id
+            - source_relation  
+    columns:
+      - name: purchase_order_id
+        description: Xero identifier for the purchase order
+        tests:
+          - not_null
+      - name: purchase_order_number
+        description: Alpha numeric code identifying the purchase order, typically a sequential number
+      - name: contact_id
+        description: The Xero identifier for the associated contact.
+      - name: purchase_order_date
+        description: The date the purchase order was issued.
+      - name: updated_date
+        description: The date the purchase order was last modified.
+      - name: delivery_date
+        description: The expected delivery date of the purchase order goods, when set.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+      - name: currency_code
+        description: The currency that purchase order has been raised in
+      - name: currency_rate
+        description: The currency rate for a multicurrency purchase order
+      - name: reference
+        description: Additional reference number to suit the organisation or supplier.
+      - name: status
+        description: The status of the purchase order
+      - name: type
+        description: The type of the purchase order.
+      - name: is_discounted
+        description: Flags if purchase order items have discounts applied
+      - name: line_amount_types
+        description: Tax inclusive, exclusive or no tax
+      - name: sub_total
+        description: Purchase order amount before tax
+      - name: total_tax
+        description: Purchase order tax amount
+      - name: total
+        description: Purchase order total amount including tax
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
+
