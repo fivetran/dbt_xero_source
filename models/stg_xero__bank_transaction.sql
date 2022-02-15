@@ -15,6 +15,7 @@ fields as (
             )
         }}
 
+        {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
 
@@ -23,6 +24,9 @@ final as (
     select
         bank_transaction_id,
         contact_id
+
+        {{ fivetran_utils.source_relation() }}
+
     from fields
 )
 

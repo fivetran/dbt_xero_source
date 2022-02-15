@@ -15,6 +15,7 @@ fields as (
             )
         }}
 
+        {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
 
@@ -33,6 +34,9 @@ final as (
         tax_amount,
         tax_name,
         tax_type
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 

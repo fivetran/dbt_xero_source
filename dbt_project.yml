@@ -1,7 +1,7 @@
 name: 'xero_source'
-version: '0.1.0'
+version: '0.4.0'
 config-version: 2
-require-dbt-version: [">=0.19.0", "<0.20.0"]
+require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 profile: 'integration_tests'
 
@@ -14,10 +14,10 @@ vars:
     invoice_line_item: "{{ source('xero','invoice_line_item') }}"
     contact: "{{ source('xero','contact') }}"
     organization: "{{ source('xero','organization') }}"
-    bank_transaction: "{{ source('xero','bank_transaction') }}" 
-    credit_note: "{{ source('xero','credit_note') }}" 
+    bank_transaction: "{{ source('xero','bank_transaction') }}"
+    credit_note: "{{ source('xero','credit_note') }}"
 
-models: 
+models:
   xero_source:
     +materialized: table
     +schema: stg_xero

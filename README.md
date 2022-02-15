@@ -1,5 +1,5 @@
+[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 # Xero Source
-
 This package models Xero data from [Fivetran's connector](https://fivetran.com/docs/applications/xero). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/xero#schemainformation).
 
 ## Models
@@ -12,6 +12,14 @@ This package contains staging models, designed to work simultaneously with our [
 ## Installation Instructions
 
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+
+Include in your `packages.yml`
+
+```yaml
+packages:
+  - package: fivetran/xero_source
+    version: [">=0.4.0", "<0.5.0"]
+```
 
 ## Configuration
 
@@ -26,6 +34,34 @@ config-version: 2
 vars:
     xero_schema: your_schema_name
     xero_database: your_database_name 
+```
+
+### Unioning Multiple Xero Connectors
+If you have multiple Xero connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set **either** (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
+
+```yml
+# dbt_project.yml
+...
+config-version: 2
+vars:
+  xero_source:
+    union_schemas: ['xero_us','xero_ca'] # use this if the data is in different schemas/datasets of the same database/project
+    union_databases: ['xero_us','xero_ca'] # use this if the data is in different databases/projects but uses the same schema name
+```
+
+### Disabling and Enabling Models
+
+When setting up your Xero connection in Fivetran, it is possible that not every table this package expects will be synced. This can occur because you either don't use that functionality in Xero or have actively decided to not sync some tables. In order to disable the relevant functionality in the package, you will need to add the relevant variables.
+
+By default, all variables are assumed to be `true`. You only need to add variables for the tables you would like to disable:
+
+```yml
+# dbt_project.yml
+
+config-version: 2
+
+vars:
+    xero__using_credit_note: false                    # default is true
 ```
 
 ## Contributions

@@ -170,5 +170,3 @@ sources:
             description: Xero identifier for the credit note.
           - name: contact_id
             description: The ID of the associated contact in Xero
-
-      

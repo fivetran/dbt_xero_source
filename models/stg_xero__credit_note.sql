@@ -1,3 +1,5 @@
+{{ config(enabled=var('xero__using_credit_note', True)) }}
+
 with base as (
 
     select *
@@ -15,6 +17,7 @@ fields as (
             )
         }}
 
+        {{ fivetran_utils.add_dbt_source_relation() }}    
     from base
 ),
 
@@ -23,6 +26,9 @@ final as (
     select
         credit_note_id,
         contact_id
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 
