@@ -1,4 +1,5 @@
 sqlfluff==0.10.0
+sqlfluff-templater-dbt==0.10.0
 dbt-snowflake==1.0.0
 dbt-bigquery==1.0.0
 dbt-redshift==1.0.0
