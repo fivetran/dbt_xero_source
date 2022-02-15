@@ -14,7 +14,7 @@ fields as (
                 staging_columns=get_invoice_columns()
             )
         }}
-        
+
         {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
@@ -45,7 +45,7 @@ final as (
         url
 
         {{ fivetran_utils.source_relation() }}
-        
+
     from fields
 )
 

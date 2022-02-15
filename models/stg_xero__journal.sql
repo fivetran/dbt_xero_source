@@ -31,7 +31,7 @@ final as (
         source_type
 
         {{ fivetran_utils.source_relation() }}
-        
+
     from fields
 )
 

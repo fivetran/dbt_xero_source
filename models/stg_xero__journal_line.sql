@@ -36,7 +36,7 @@ final as (
         tax_type
 
         {{ fivetran_utils.source_relation() }}
-        
+
     from fields
 )
 

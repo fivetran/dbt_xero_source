@@ -27,7 +27,7 @@ final as (
         financial_year_end_day
 
         {{ fivetran_utils.source_relation() }}
-        
+
     from fields
 )
 

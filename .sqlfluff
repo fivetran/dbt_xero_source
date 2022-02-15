@@ -1,7 +1,7 @@
 [sqlfluff]
 templater = dbt
-exclude_rules = L009
-dialect = snowflake
+exclude_rules = L009,L032
+dialect = bigquery
 
 [sqlfluff:rules:L010]  # Keywords
 capitalisation_policy = consistent

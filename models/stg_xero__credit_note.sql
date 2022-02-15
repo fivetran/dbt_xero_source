@@ -17,7 +17,7 @@ fields as (
             )
         }}
 
-        {{ fivetran_utils.add_dbt_source_relation() }}    
+        {{ fivetran_utils.add_dbt_source_relation() }}
     from base
 ),
 
@@ -28,7 +28,7 @@ final as (
         contact_id
 
         {{ fivetran_utils.source_relation() }}
-        
+
     from fields
 )
 
