@@ -1,7 +1,7 @@
 name: 'xero_source'
-version: '0.4.0'
+version: '0.3.0'
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
+require-dbt-version: ">=0.20.0"
 
 vars:
   xero_source:
@@ -14,6 +14,8 @@ vars:
     organization: "{{ source('xero','organization') }}"
     bank_transaction: "{{ source('xero','bank_transaction') }}"
     credit_note: "{{ source('xero','credit_note') }}"
+    purchase_order: "{{ source('xero','purchase_order') }}"
+    purchase_order_line_item: "{{ source('xero','purchase_order_line_item') }}"
 
 models:
   xero_source:
