@@ -1,3 +1,5 @@
+{{ config(enabled=var('xero__using_bank_transaction', True)) }}
+
 {{
     fivetran_utils.union_data(
         table_identifier='bank_transaction', 
