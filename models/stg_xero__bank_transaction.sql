@@ -1,3 +1,4 @@
+{{ config(enabled=var('xero__using_bank_transaction', True)) }}
 
 with base as (
 
