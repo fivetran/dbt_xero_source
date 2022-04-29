@@ -8,6 +8,7 @@ sources:
     loaded_at_field: _fivetran_synced
     tables:
       - name: account
+        identifier: xero__account_identifier
         description: Each record in this table represents an account in Xero.
         columns:
           - name: account_id
@@ -24,6 +25,7 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
 
       - name: contact
+        identifier: xero__contact_identifier
         description: Each record in this table represents a contact in Xero.
         columns:
           - name: contact_id
@@ -32,6 +34,7 @@ sources:
             description: The name of the contact.
 
       - name: invoice_line_item
+        identifier: xero__invoice_line_item_identifier
         description: Each record in this able represents an invoice line item in Xero.
         columns:
           - name: _fivetran_synced
@@ -62,6 +65,7 @@ sources:
             description: The unit amount of each line item. 
 
       - name: invoice
+        identifier: xero__invoice_identifier
         description: Each record in this table represents an invoice in Xero.
         columns:
           - name: invoice_id
@@ -100,6 +104,7 @@ sources:
             description: URL link to a source document
 
       - name: journal_line
+        identifier: xero__journal_line_identifier
         description: Each record represents a journal line in Xero.
         columns:
           - name: journal_line_id
@@ -128,6 +133,7 @@ sources:
             description: The type of the tax rate.
 
       - name: journal
+        identifier: xero__journal_identifier
         description: Each record represents a journal in Xero
         columns:
           - name: journal_id
@@ -146,6 +152,7 @@ sources:
             description: The journal source type. This can be used to know which table to join to for additional information.
 
       - name: organization
+        identifier: xero__organization_identifier
         description: Each record represents an organization in Xero.
         columns:
           - name: organisation_id
@@ -156,6 +163,7 @@ sources:
             description: Calendar day e.g. 0-31
 
       - name: bank_transaction
+        identifier: xero__bank_transaction_identifier
         description: Each record represents a bank transaction in Xero.
         columns:
           - name: bank_transaction_id
@@ -164,6 +172,7 @@ sources:
             description: The ID of the associated contact in Xero
             
       - name: credit_note
+        identifier: xero__credit_note_identifier
         description: Each record represents a credit note in Xero.
         columns:
           - name: credit_note_id

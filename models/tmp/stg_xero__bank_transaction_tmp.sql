@@ -7,6 +7,8 @@
         schema_variable='xero_schema', 
         default_database=target.database,
         default_schema='xero',
-        default_variable='bank_transaction'
+        default_variable='bank_transaction',
+        union_schema_variable='xero_union_schemas',
+        union_database_variable='xero_union_databases'
     )
 }} 

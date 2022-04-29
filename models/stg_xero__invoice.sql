@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_xero__invoice_tmp') }}
-
 ),
 
 fields as (
@@ -16,26 +15,24 @@ fields as (
             )
         }}
         
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.add_dbt_source_relation() }}
+
     from base
 ),
 
 final as (
     
     select 
-        -- IDs
         invoice_id,
         contact_id,
-
-        -- dates
-        date as invoice_date,
-        updated_date_utc as updated_date,
-        planned_payment_date,
-        due_date,
-        expected_payment_date,
-        fully_paid_on_date,
+        cast(date as {{ dbt_utils.type_timestamp() }}) as invoice_date,
+        cast(updated_date_utc as {{ dbt_utils.type_timestamp() }}) as updated_date,
+        cast(planned_payment_date as {{ dbt_utils.type_timestamp() }}) as planned_payment_date,
+        cast(due_date  as {{ dbt_utils.type_timestamp() }}) as due_date,
+        cast(expected_payment_date as {{ dbt_utils.type_timestamp() }}) as expected_payment_date,
+        cast(fully_paid_on_date as {{ dbt_utils.type_timestamp() }}) as fully_paid_on_date,
         _fivetran_synced,
-
         currency_code,
         currency_rate,
         invoice_number,
@@ -45,9 +42,11 @@ final as (
         type,
         url
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.source_relation() }}
         
     from fields
 )
 
-select * from final
+select * 
+from final

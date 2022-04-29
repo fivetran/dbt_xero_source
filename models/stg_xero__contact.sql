@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_xero__contact_tmp') }}
-
 ),
 
 fields as (
@@ -16,7 +15,9 @@ fields as (
             )
         }}
 
-        {{ fivetran_utils.add_dbt_source_relation() }}        
+        --Necessary operation to union the multiple schemas.
+        {{ fivetran_utils.add_dbt_source_relation() }}
+        
     from base
 ),
 
@@ -26,10 +27,12 @@ final as (
         contact_id,
         name as contact_name
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.source_relation() }}
         
     from fields
     where _fivetran_deleted = False
 )
 
-select * from final
+select * 
+from final

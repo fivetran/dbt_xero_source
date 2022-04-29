@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_xero__account_tmp') }}
-
 ),
 
 fields as (
@@ -16,7 +15,9 @@ fields as (
             )
         }}
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.add_dbt_source_relation() }}
+
     from base
 ),
 
@@ -30,10 +31,11 @@ final as (
         class as account_class,
         _fivetran_synced
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.source_relation() }}
 
     from fields
-
 )
 
-select * from final
+select * 
+from final

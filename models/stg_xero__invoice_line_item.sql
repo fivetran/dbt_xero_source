@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_xero__invoice_line_item_tmp') }}
-
 ),
 
 fields as (
@@ -16,6 +15,7 @@ fields as (
             )
         }}
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.add_dbt_source_relation() }}    
     from base
 ),
@@ -37,9 +37,11 @@ final as (
         tax_type,
         unit_amount
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.source_relation() }}
         
     from fields
 )
 
-select * from final
+select * 
+from final

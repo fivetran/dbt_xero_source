@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_xero__organization_tmp') }}
-
 ),
 
 fields as (
@@ -16,7 +15,9 @@ fields as (
             )
         }}
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.add_dbt_source_relation() }}
+
     from base
 ),
 
@@ -27,9 +28,11 @@ final as (
         financial_year_end_month,
         financial_year_end_day
 
+        --Necessary operation to union the multiple schemas.
         {{ fivetran_utils.source_relation() }}
         
     from fields
 )
 
-select * from final
+select * 
+from final

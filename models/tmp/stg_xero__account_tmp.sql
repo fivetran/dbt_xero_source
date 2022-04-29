@@ -5,6 +5,8 @@
         schema_variable='xero_schema', 
         default_database=target.database,
         default_schema='xero',
-        default_variable='account'
+        default_variable='account',
+        union_schema_variable='xero_union_schemas',
+        union_database_variable='xero_union_databases'
     )
 }} 
