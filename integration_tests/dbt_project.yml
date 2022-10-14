@@ -1,9 +1,8 @@
 name: 'xero_source_integration_tests'
-version: '0.4.1'
+version: '0.5.0'
 profile: 'integration_tests'
 config-version: 2
-
-vars: 
+vars:
   xero_source:
     account: "{{ ref('xero_account_data') }}"
     journal_line: "{{ ref('xero_journal_line_data') }}"
