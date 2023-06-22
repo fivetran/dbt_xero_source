@@ -5,7 +5,7 @@
 ## 🚘 Under the Hood 🚘
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#19](https://github.com/fivetran/dbt_xero_source/pull/19))
 - Updated the pull request [templates](/.github). ([#19](https://github.com/fivetran/dbt_xero_source/pull/19))
- ([#19](https://github.com/fivetran/dbt_xero_source/pull/19))
+
 # dbt_xero_source v0.5.0
 
 ## 🚨 Breaking Changes 🚨:
