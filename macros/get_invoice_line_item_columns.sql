@@ -13,8 +13,7 @@
     {"name": "quantity", "datatype": dbt.type_numeric()},
     {"name": "tax_amount", "datatype": dbt.type_numeric()},
     {"name": "tax_type", "datatype": dbt.type_string()},
-    {"name": "unit_amount", "datatype": dbt.type_numeric()},
-    {"name": "validation_errors", "datatype": dbt.type_string()}
+    {"name": "unit_amount", "datatype": dbt.type_numeric()}
 ] %}
 
 {{ return(columns) }}
