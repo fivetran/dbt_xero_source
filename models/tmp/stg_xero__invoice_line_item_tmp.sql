@@ -5,6 +5,7 @@
         schema_variable='xero_schema', 
         default_database=target.database,
         default_schema='xero',
-        default_variable='invoice_line_item'
+        default_variable='invoice_line_item',
+        excluded=['validation_errors']
     )
 }} 
