@@ -28,7 +28,7 @@ To use this dbt package, you must have the following:
 ### Step 2: Install the package (skip if also using the `xero` transformation package)
 Include the following xero_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
-```yaml
+```yml
 packages:
   - package: fivetran/xero_source
     version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
@@ -43,14 +43,14 @@ vars:
 ```
 
 ### (Optional) Step 4: Additional configurations
-<details><summary>Expand for configurations</summary>
+<details open><summary>Expand for configurations</summary>
 
 #### Unioning Multiple Xero Connectors
 If you have multiple Xero connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set **either** (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
 
 ```yml
 # dbt_project.yml
-...
+
 config-version: 2
 vars:
   xero_source:
@@ -73,13 +73,25 @@ vars:
     xero__using_credit_note: false                  # default is true
     xero__using_bank_transaction: false             # default is true
 ```
+
+#### Changing the source table references
+If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_xero_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+
+```yml
+vars:
+    xero<default_source_table_name>_identifier: your_table_name
+```
+
 </details>
 
 ### (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for more details</summary>
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
-    
+
+</details>
+
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
@@ -91,15 +103,6 @@ packages:
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
 ```
-#### Change the source table references
-If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_xero_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
-
-```yml
-vars:
-    xero<default_source_table_name>_identifier: your_table_name
-```
-</details>
 
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
