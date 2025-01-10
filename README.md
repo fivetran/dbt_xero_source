@@ -22,7 +22,7 @@
 ## How do I use the dbt package?
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
-- At least one Fivetran Xero connector syncing data into your destination.
+- At least one Fivetran Xero connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 ### Step 2: Install the package (skip if also using the `xero` transformation package)
@@ -45,8 +45,8 @@ vars:
 ### (Optional) Step 4: Additional configurations
 <details open><summary>Expand for configurations</summary>
 
-#### Unioning Multiple Xero Connectors
-If you have multiple Xero connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set **either** (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
+#### Unioning Multiple Xero Connections
+If you have multiple Xero connections in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set **either** (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
 
 ```yml
 # dbt_project.yml
