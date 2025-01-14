@@ -1,3 +1,8 @@
+# dbt_xero_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#25](https://github.com/fivetran/dbt_xero_source/pull/25))
+
 # dbt_xero_source v0.6.0
 ## 🎉 Feature Update 🎉
 - Databricks compatibility! ([#20](https://github.com/fivetran/dbt_xero_source/pull/20))
