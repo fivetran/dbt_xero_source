@@ -14,6 +14,8 @@ vars:
     xero_organization_identifier: "xero_organization_data"
     xero_bank_transaction_identifier: "xero_bank_transaction_data"
     xero_credit_note_identifier: "xero_credit_note_data"
+    xero_invoice_line_item_has_tracking_category: "xero_invoice_line_item_has_tracking_category_data"
+    xero_journal_line_has_tracking_category: "xero_journal_line_has_tracking_category_data"
     xero_schema: xero_source_integration_tests
 
 dispatch:
