@@ -13,6 +13,9 @@ vars:
     organization: "{{ source('xero','organization') }}"
     bank_transaction: "{{ source('xero','bank_transaction') }}"
     credit_note: "{{ source('xero','credit_note') }}"
+    invoice_line_item_has_tracking_category: "{{ source('xero','invoice_line_item_has_tracking_category') }}"
+    journal_line_has_tracking_category: "{{ source('xero','journal_line_has_tracking_category') }}"
+
 models:
   xero_source:
     +materialized: table
