@@ -27,7 +27,8 @@ final as (
         journal_line_id,
         tracking_category_id,
         option,
-        tracking_category_option_id 
+        tracking_category_option_id, 
+        _fivetran_synced
 
         {{ fivetran_utils.source_relation() }}
         
