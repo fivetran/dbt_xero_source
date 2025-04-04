@@ -2,10 +2,16 @@
 This pre-release includes the following updates: 
 
 ## Breaking Changes
-- Added new tracking categories models to better help Xero customers better understand how different areas of their business are performing. [([#26](https://github.com/fivetran/dbt_xero_source/pull/26))]
+- Added new tracking categories models to help Xero customers better understand how segments of their business are performing financially. [([#26](https://github.com/fivetran/dbt_xero_source/pull/26))]
   - `stg_xero__invoice_line_item_has_tracking_category`
   - `stg_xero__journal_line_has_tracking_category`
-- This is designed to bring tracking category option fields into the following end models in the `dbt_xero` package. You can find more information in the [v0.9.0-a1 pre-release notes](https://github.com/fivetran/dbt_quickbooks/releases/tag/v0.17.1-a1). 
+  - `stg_xero__tracking_category`
+  - `stg_xero__tracking_category_option`
+  - `stg_xero__tracking_category_has_option`
+- This is designed to bring tracking category option fields into the following data models in the `dbt_xero` package:
+  - `xero__general_ledger` and `xero__profit_and_loss_report` now pivots out journal line tracking category values.
+  - `xero__invoice_line_items` now pivots out invoice line item tracking category values.
+- You can find more information in the [v0.9.0-a1 pre-release notes](https://github.com/fivetran/dbt_quickbooks/releases/tag/v0.17.1-a1). 
 
 ## Under the Hood 
 - Added seed files to properly test out advanced cases for the new tracking categories.
