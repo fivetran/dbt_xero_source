@@ -15,6 +15,9 @@ vars:
     credit_note: "{{ source('xero','credit_note') }}"
     invoice_line_item_has_tracking_category: "{{ source('xero','invoice_line_item_has_tracking_category') }}"
     journal_line_has_tracking_category: "{{ source('xero','journal_line_has_tracking_category') }}"
+    tracking_category_has_option: "{{ source('xero','tracking_category_has_option') }}"
+    tracking_category_option: "{{ source('xero','tracking_category_option') }}"
+    tracking_category: "{{ source('xero','tracking_category') }}"
 
 models:
   xero_source:
