@@ -1,3 +1,4 @@
+{{ config(enabled=var('xero__using_tracking_category_option', True)) }}
 
 with base as (
 

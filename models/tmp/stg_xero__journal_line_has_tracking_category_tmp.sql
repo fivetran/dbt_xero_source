@@ -1,3 +1,5 @@
+{{ config(enabled=var('xero__using_journal_line_tracking_category', True)) }}
+
 {{
     fivetran_utils.union_data(
         table_identifier='journal_line_has_tracking_category', 

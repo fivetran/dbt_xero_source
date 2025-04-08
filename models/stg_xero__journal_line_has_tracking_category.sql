@@ -1,3 +1,4 @@
+{{ config(enabled=var('xero__using_journal_line_tracking_category', True)) }}
 
 with base as (
 

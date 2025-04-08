@@ -1,3 +1,5 @@
+{{ config(enabled=var('xero__using_tracking_category_has_option', True)) }}
+
 {{
     fivetran_utils.union_data(
         table_identifier='tracking_category_has_option', 

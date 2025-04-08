@@ -1,3 +1,4 @@
+{{ config(enabled=var('xero__using_invoice_line_item_tracking_category', True)) }}
 
 with base as (
 
