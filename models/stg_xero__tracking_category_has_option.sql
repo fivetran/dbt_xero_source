@@ -1,4 +1,4 @@
-{{ config(enabled=var('xero__using_tracking_category_has_option', True)) }}
+{{ config(enabled=var('xero__using_tracking_categories', True)) }}
 
 with base as (
 
