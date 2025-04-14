@@ -27,7 +27,7 @@ final as (
         invoice_id,
         line_item_id,
         tracking_category_id,
-        option,
+        option as tracking_option_name,
         _fivetran_synced
 
         {{ fivetran_utils.source_relation() }}

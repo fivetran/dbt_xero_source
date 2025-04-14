@@ -1,4 +1,5 @@
 version: 2
+
 sources:
   - name: xero
     schema: "{{ var('xero_schema', 'xero') }}"

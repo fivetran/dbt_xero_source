@@ -25,7 +25,7 @@ final as (
     
     select
         tracking_option_id,
-        name,
+        name as tracking_option_name,
         status,
         has_validation_errors,
         is_active,

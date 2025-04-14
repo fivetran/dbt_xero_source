@@ -25,7 +25,7 @@ final as (
     
     select
         tracking_category_id,
-        name,
+        name as tracking_category_name,
         status,
         _fivetran_synced
 

@@ -237,7 +237,14 @@ models:
 
   - name: stg_xero__invoice_line_item_has_tracking_category
     description: Tracking category details for invoice line items.
-
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - invoice_id
+            - line_item_id
+            - tracking_category_id
+            - tracking_option_name
+            - source_relation
     columns:
       - name: invoice_id
         description: Xero identifier for the invoice.
@@ -245,7 +252,7 @@ models:
         description: Xero identifier for the line item.
       - name: tracking_category_id
         description: Xero identifier for the tracking category.
-      - name: option
+      - name: tracking_option_name
         description: Value(s) of the tracking category (tracking categories can have multiple values).
       - name: source_relation
         description: >
@@ -255,6 +262,14 @@ models:
 
   - name: stg_xero__journal_line_has_tracking_category 
     description: Tracking category details for journal lines.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - journal_id
+            - journal_line_id
+            - tracking_category_id
+            - tracking_category_option_id
+            - source_relation
     columns:
       - name: journal_id
         description: Xero identifier for the journal.
@@ -274,10 +289,15 @@ models:
 
   - name: stg_xero__tracking_category 
     description: Tracking category metadata, including name and status.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tracking_category_id
+            - source_relation
     columns:
       - name: tracking_category_id
         description: Xero identifier for the tracking category.
-      - name: name
+      - name: tracking_category_name
         description: Name of the tracking category.
       - name: status
         description: Status of the tracking category (e.g., ACTIVE, DELETED).
@@ -291,10 +311,15 @@ models:
 
   - name: stg_xero__tracking_category_option
     description: Individual options (values) within a Xero tracking category.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tracking_option_id
+            - source_relation
     columns:
       - name: tracking_option_id
         description: Xero identifier for the tracking category option.
-      - name: name
+      - name: tracking_option_name
         description: Name of the tracking category option.
       - name: status
         description: Status of the tracking category option (e.g., ACTIVE, DELETED).
@@ -316,6 +341,12 @@ models:
 
   - name: stg_xero__tracking_category_has_option
     description: Mapping table between Xero tracking categories and their associated options.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tracking_category_id
+            - tracking_option_id
+            - source_relation
     columns:
       - name: tracking_category_id
         description: Xero identifier for the tracking category.

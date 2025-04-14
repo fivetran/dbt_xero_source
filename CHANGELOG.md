@@ -12,7 +12,7 @@ This release includes the following updates:
   - `xero__general_ledger` and `xero__profit_and_loss_report` now pivots out journal line tracking category values and their active options.
   - `xero__invoice_line_items` now pivots out invoice line item tracking category values and their active options.
 - You can find more information in the [v0.9.0 release notes](https://github.com/fivetran/dbt_xero/releases/tag/v0.9.0). 
-- Added the following variables to allow the ability to disable your models if you're not planning to utilize the tracking category configuration. These models are enabled by default  [([#26](https://github.com/fivetran/dbt_xero_source/pull/26))]
+- Added the following variables to allow the ability to disable your models if you're not planning to utilize the tracking category configuration. These models are enabled by default. [See the README](https://github.com/fivetran/dbt_xero_source/blob/main/README.md#disabling-and-enabling-models) for detailed instructions.  [([#26](https://github.com/fivetran/dbt_xero_source/pull/26))]
   - `xero__using_invoice_line_item_tracking_category`
   - `xero__using_journal_line_tracking_category`
   - `xero__using_tracking_categories`
