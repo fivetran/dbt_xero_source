@@ -73,7 +73,7 @@ vars:
     xero__using_credit_note: false                  # default is true
     xero__using_bank_transaction: false             # default is true
     xero__using_invoice_line_item_tracking_category: false  # default is true
-    xero__using_journal_line_has_tracking_category: false # default is true
+    xero__using_journal_line_tracking_category: false # default is true
     xero__using_tracking_categories: false                # default is true
 ```
 
