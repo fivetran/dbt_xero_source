@@ -1,7 +1,7 @@
 # dbt_xero_source v0.7.0
 This release includes the following updates: 
 
-## Breaking Changes (requires `--full-refresh`)
+## Breaking Changes
 - Added new tracking category models to help Xero customers better understand how segments of their business are performing financially. [([#26](https://github.com/fivetran/dbt_xero_source/pull/26))]
   - `stg_xero__invoice_line_item_has_tracking_category`
   - `stg_xero__journal_line_has_tracking_category`
