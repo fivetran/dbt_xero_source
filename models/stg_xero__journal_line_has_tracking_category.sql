@@ -27,7 +27,7 @@ final as (
         journal_id,
         journal_line_id,
         tracking_category_id,
-        option,
+        option as tracking_option_name,
         tracking_category_option_id, 
         _fivetran_synced
 
