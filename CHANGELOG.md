@@ -1,7 +1,36 @@
-# dbt_xero_source version.version
+# dbt_xero_source v0.7.0
+This release includes the following updates: 
+
+## Breaking Changes
+- Added new tracking category models to help Xero customers better understand how segments of their business are performing financially. ([#26](https://github.com/fivetran/dbt_xero_source/pull/26))
+  - Here is the mapping between source table and staging model. 
+
+| Source Table                          | Staging Model                                         |  
+|--------------------------------------|-------------------------------------------------------|
+| `invoice_line_item_has_tracking_category` | `stg_xero__invoice_line_item_has_tracking_category`   |
+| `journal_line_has_tracking_category`     | `stg_xero__journal_line_has_tracking_category`        |
+| `tracking_category`                     | `stg_xero__tracking_category`                         |
+| `tracking_category_option`              | `stg_xero__tracking_category_option`                  |
+| `tracking_category_has_option`          | `stg_xero__tracking_category_has_option`              |
+
+- These models are designed to bring tracking category option fields into downstream data models in the `dbt_xero` package. You can find more information in the [v0.9.0 release notes](https://github.com/fivetran/dbt_xero/releases/tag/v0.9.0). 
+- Added the following variables to allow the ability to disable your models if you're not planning to utilize the tracking category configuration. These models are enabled by default. [See the README](https://github.com/fivetran/dbt_xero_source/blob/main/README.md#disabling-and-enabling-models) for detailed instructions.  ([#26](https://github.com/fivetran/dbt_xero_source/pull/26))
+
+| Staging Model                                         | Relevant Variable(s)                             |
+|-------------------------------------------------------|---------------------------------------------------|
+|`stg_xero__invoice_line_item_has_tracking_category`   | `xero__using_invoice_line_item_tracking_category` |
+|`stg_xero__journal_line_has_tracking_category`        | `xero__using_journal_line_tracking_category`      |
+|`stg_xero__tracking_category`                         | `xero__using_tracking_categories`                 |
+| `stg_xero__tracking_category_option`                  | `xero__using_tracking_categories`                 |
+| `stg_xero__tracking_category_has_option`              | `xero__using_tracking_categories`                 |
+
+## Under the Hood 
+- Updated seed files to properly test out advanced cases for the new tracking categories downstream. 
 
 ## Documentation
-- Corrected references to connectors and connections in the README. ([#25](https://github.com/fivetran/dbt_xero_source/pull/25))
+- Updated `src_xero.yml` and `stg_xero.yml` with the new tables, fields and models that were created. ([#26](https://github.com/fivetran/dbt_xero_source/pull/26)) 
+- Added instructions in the README for how to disable these models utilizing the new variables. ([#26](https://github.com/fivetran/dbt_xero_source/pull/26)) 
+- Corrected references to connectors and connections in the README. ([#25](https://github.com/fivetran/dbt_xero_source/pull/25)) 
 
 # dbt_xero_source v0.6.0
 ## 🎉 Feature Update 🎉

@@ -179,3 +179,91 @@ sources:
             description: Xero identifier for the credit note.
           - name: contact_id
             description: The ID of the associated contact in Xero
+
+      - name: invoice_line_item_has_tracking_category
+        identifier: "{{ var('xero_invoice_line_item_has_tracking_category_identifier', 'invoice_line_item_has_tracking_category')}}"
+        description: Tracking category details for invoice line items.
+        config:
+          enabled: "{{ var('xero__using_invoice_line_item_tracking_category', true) }}"       
+        columns:
+          - name: invoice_id
+            description: Xero identifier for the invoice.
+          - name: line_item_id
+            description: Xero identifier for the line item.
+          - name: tracking_category_id
+            description: Xero identifier for the tracking category.
+          - name: option
+            description: Value(s) of the tracking category (tracking categories can have multiple values).
+
+      - name: journal_line_has_tracking_category
+        identifier: "{{ var('xero_journal_line_has_tracking_category_identifier', 'journal_line_has_tracking_category')}}"
+        description: Tracking category details for journal lines.
+        config:
+          enabled: "{{ var('xero__using_journal_line_tracking_category', true) }}"
+        columns: 
+          - name: journal_id
+            description: Xero identifier for the journal.
+          - name: journal_line_id
+            description: Xero identifier for the journal line.
+          - name: tracking_category_id
+            description: Xero identifier for the tracking category.
+          - name: option
+            description: Value(s) of the tracking category (tracking categories can have multiple values).
+          - name: tracking_category_option_id
+            description: Xero identifier for the tracking category option.
+
+      - name: tracking_category
+        identifier: "{{ var('xero_tracking_category_identifier', 'tracking_category')}}"
+        description: Tracking category metadata, including name and status.
+        config:
+          enabled: "{{ var('xero__using_tracking_categories', true) }}"
+        columns:
+          - name: tracking_category_id
+            description: Xero identifier for the tracking category.
+          - name: name
+            description: Name of the tracking category.
+          - name: status
+            description: Status of the tracking category (e.g., ACTIVE, DELETED).
+          - name: _fivetran_synced
+            description: Timestamp when the record was last synced by Fivetran.
+          - name: source_relation
+            description: >
+              The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+              If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+              sources, this will be an empty string.
+
+      - name: tracking_category_option
+        identifier: "{{ var('xero_tracking_category_option_identifier', 'tracking_category_option')}}"
+        description: Individual options (values) within a Xero tracking category.
+        config:
+          enabled: "{{ var('xero__using_tracking_categories', true) }}"
+        columns:
+          - name: tracking_option_id
+            description: Xero identifier for the tracking category option.
+          - name: name
+            description: Name of the tracking category option.
+          - name: status
+            description: Status of the tracking category option (e.g., ACTIVE, DELETED).
+          - name: has_validation_errors
+            description: Boolean indicating if there are validation errors for this option.
+          - name: is_active
+            description: Boolean indicating if the option is active.
+          - name: is_archived
+            description: Boolean indicating if the option is archived.
+          - name: is_deleted
+            description: Boolean indicating if the option is deleted.
+          - name: _fivetran_synced
+            description: Timestamp when the record was last synced by Fivetran.
+
+      - name: tracking_category_has_option
+        identifier: "{{ var('xero_tracking_category_has_option_identifier', 'tracking_category_has_option')}}"
+        description: Mapping table between Xero tracking categories and their associated options.
+        config:
+          enabled: "{{ var('xero__using_tracking_categories', true) }}"
+        columns:
+          - name: tracking_category_id
+            description: Xero identifier for the tracking category.
+          - name: tracking_option_id
+            description: Xero identifier for the tracking category option.
+          - name: _fivetran_synced
+            description: Timestamp when the record was last synced by Fivetran.
